@@ -1,0 +1,415 @@
+\documentclass[10pt,a4paper]{beamer}
+%\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[nynorsk]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\usepackage{svg}
+
+
+\usetheme{metropolis}
+\usepackage{csquotes}
+\usepackage{minted}
+\usepackage{listings}
+
+\usepackage{enumerate}
+
+\title{Grunnleggande innføring i \LaTeX}
+\date{\today}
+\author{Eirik Haustveit}
+\institute{Institutt for datateknologi, elektroteknologi og realfag}
+\begin{document}
+	
+	\titlepage
+	
+	\section{Historie}
+	\label{sec:history}
+	
+	\begin{frame}{\TeX}
+		
+		I 1978 lanserte Donald Knuth eit typesettingssystem som han kalte for \TeX{}. Motivet hans for utvikling av \TeX{} var at han ønskte eit betre system for å skriva dei bøkene han jobba med.
+		
+		Formålet med \TeX{} var (og er) at kven som helst med rimelig enkelthet skulle kunne produsera bøker med høg kvalitet (typografisk sett).
+		
+		Namnet \TeX{} kjem frå gresk \(\tau\epsilon\chi\nu\eta\) som tyder ferdighet eller kunst. Den siste bokstaven i \TeX{}, $\chi$ er ein stor ``chi'', og uttalen av ordet \TeX{} er ``tekh''.
+		
+	\end{frame}
+	
+	\begin{frame}{\LaTeX}
+		
+		\includesvg[width=1.5in]{img/latex-project-logo.svg}
+		
+		\TeX{} kan vera ganske tungvindt å nytta direkte, og gir brukaren litt for mykje fleksibiliet i å styra utforminga av dokumentet. Når ein skriv eit dokument er det normalt ynskjeleg at dokumentet fylgjer ein gitt standard for typografi utan at ein manuelt må passe på dette.
+		
+		\LaTeX{} er ein utvidelse av \TeX{} med ulike tillegg som skal gjera det enklare å utarbeida dokument i henhold til ein gitt standard. Dvs. med ein gitt skrifttype, gitte margar, linjeavstandar og andre parameter som det er naturleg at skal vera konsekvent gjennom heile dokumentet. Ulike malar er tilgjengeleg for ulike dokumenttypar, og det er også mogleg å laga sin eigen mal.
+		
+	\end{frame}
+	
+	\section{Introduksjon til \LaTeX}
+	
+	\begin{frame}{Bruksområde for \LaTeX}
+		
+		\begin{itemize}
+			\item Artiklar, rapportar, bøker m.m.
+			\item Presentasjonar
+			\item Typesettig av matemtaikk for import i andre program
+			\item Teikning av figurar og grafar
+		\end{itemize}
+		
+	\end{frame}
+
+
+	\begin{frame}{\LaTeX vs Microsoft Word}
+		
+		Microsoft Word (og mange andre som til dømes Libre Office) er såkalla ``what you see is what you get'' (WYSIWYG) tekstredigeringsprogram. Det du ser ved redigering er det samme som det endelige resultatet. Det meste av funksjonaliteten er tilgjengeleg i menyar, men det betyr ikkje nødvendigvis at det er enkelt å finna fram til ein gitt funksjon.
+		
+		\LaTeX er eit ``what you see is what you mean'' (WYSIWYM) tekstredigeringssystem. Ein markerer teksten med spesielle kommandoar for å angi meininga, og så er det opp til \LaTeX å tolke denne meininga og presentera resultatet. Til dømes får ein \textbf{utheva tekst}, ved hjelp av markeringa \mintinline{latex}|\textbf{utheva tekst}|
+		
+		Det er sannsylegvis enklare å komma i gang med Word enn \LaTeX, men denne fordelen forsvinn fort når ein skal gjera noko litt meir avansert.
+	\end{frame}
+	
+	\begin{frame}
+		
+		Det er fleire ulike skyløysingar tilgjengelig for å skriva i \LaTeX. Ulempen med slike løysingar er først og fremst at ein legg alle filane sine på nokon andre si datamaskin. Ein anna ulempe er at det kan vera litt treigare og at det ikkje alltid er oppdatert til siste versjon av \LaTeX.
+		
+		Ei populær skyløysing er Overleaf: \url{https://www.overleaf.com/}. Dersom du ikkje har installert programvaren før oppmøte på kurset i dag så kan du oppretta ein brukar her for å testa ut det som vert demonstrert.
+		
+	\end{frame}
+	
+	
+	\begin{frame}{Installasjon av programvare}
+		
+		Framgangsmåten for installasjon av \LaTeX vil variera avhengig av kva operativsystem ein nyttar.
+		
+		For Windows kan ein installera MikTeX: \url{https://miktex.org/download}.
+		
+		Ein treng også ein teksteditor, og her er TeXstudio eit godt alternativ: \url{https://www.texstudio.org/}
+		
+		Brukarar av MacOS, eller Linux kan også nytta MikTeX, men har også andre alternativ. Bruk google, eller spør om hjelp om du ikkje finn ut av det sjølv.
+	\end{frame}
+	
+	\section{Bruk av \LaTeX}
+	
+	\begin{frame}{Introduksjon}
+		\LaTeX er eit typesettingsspråk.
+		
+		
+	\end{frame}
+	
+	\begin{frame}[containsverbatim]{Oppbygging av eit dokument}
+		
+\begin{minted}{latex}
+\documentclass[10pt,a4paper]{article}
+%\usepackage[utf8]{inputenc} % Ikkje for LuaLaTeX
+\usepackage[T1]{fontenc}
+\usepackage[nynorsk]{babel}
+
+\author{Eirik Haustveit}
+\title{Demo}
+\begin{document}
+	Eit enkelt dokument
+\end{document}
+\end{minted}
+		
+	\end{frame}
+	
+
+	\begin{frame}[containsverbatim]{Oppbygging av eit dokument}
+	
+	Koden før \mintinline{latex}|\begin{document}| vert kalla ``preamble''. Her importerer ein pakkar som tilbyr ekstra funksjonalitet og endrer instillingar som gjeld heile dokumentet.
+	
+	\end{frame}
+	
+	
+	\begin{frame}{Inndeling i seksjonar og kapittel}
+		
+		Inndeling av dokumentet i kapittel og underkapittel (seksjonar) vert gjort med ulike kommandoar avhengig av nivået:
+		
+		\mintinline{latex}{\section{tittel}}, \mintinline{latex}{\subsection{tittel}}, \mintinline{latex}{\subsubsection{tittel}}
+		
+		\mintinline{latex}{\chapter{tittel}}
+				
+	\end{frame}
+	
+	\begin{frame}{Dokumentklassar}
+		
+		\begin{itemize}
+			\item Artikkel
+		\end{itemize}
+		
+	\end{frame}
+	
+	\begin{frame}{Innhaldsfortegnelse}
+		
+		Ei innhaldsfortegnelse i \LaTeX vert normalt autogenerert ut frå inndelinga i seksjonar og kapittel. Kommandoen \mintinline{latex}{\tableofcontents} plasserer innhaldsfortegnelsen der ein måtte ynskja, til dømes her:
+		
+		\tableofcontents
+	\end{frame}
+	
+	\begin{frame}{Fotnoter}
+		
+		Ei fotnote er eit notat til ein tekst plassert nederst på sida, med eit teikn i brødteksten som refererer til fotnoten\footnote{Fotnoter er ofte nytta som eit alternativ til å inkludera ei lang forklaring inne i brødteksten. Ein lesar som forstår teksten kan då hoppa over fotnoten, medan ein som har problem med å forstå teksten kan få hjelp.}. Kommandoen for å setta inn ei fotnote må plasserast der ein ynskjer å plassera referansen:
+		
+		\mintinline{latex}{..refererer til fotnoten\footnote{Fotnoter er ofte...}.}
+		
+	\end{frame}
+	
+	\begin{frame}{Kryssreferansar}
+		
+		Kryssreferering er interne referansar i eit dokument for å fortelja lesaren kvar han kan finna gitt informasjon i dokumentet. Til dømes:
+		
+		\begin{displayquote}
+			Ohms lov er gitt i formel \eqref{eq:ohms-law}. Bla bla bla, meir tekst.... meir tekst meir tekst
+			
+			\begin{equation}
+				U = R \cdot I
+				\label{eq:ohms-law}
+			\end{equation}
+
+		\end{displayquote}
+		
+		Eit anna relevant døme er:
+		
+		\begin{displayquote}
+			Grunnleggande om historien til \TeX og \LaTeX er gitt i avsnitt \ref{sec:history}.
+		\end{displayquote}
+		
+	\end{frame}
+	
+	
+	\begin{frame}[containsverbatim]{Listing av kjeldekode}
+		
+		Kjeldekode i ulike programmeringsspråk vert normalt lista i ulike fargar for betra lesbarheten.
+		
+		Til dømes i Matlab:
+		
+\begin{minted}{matlab}
+% Generate a random number
+a = randi(100, 1);
+
+% If it is even, divide by 2
+if rem(a, 2) == 0
+disp('a is even')
+b = a/2;
+end
+\end{minted}
+
+	\end{frame}
+
+
+
+
+	\begin{frame}[containsverbatim]{Listing av kjeldekode}
+		Ein har ulike pakkar for listing av kjeldekode.
+		
+		\begin{itemize}
+			\item verbatim
+			\item listings
+			\item Minted
+		\end{itemize}
+	
+	Den mest avanserte (beste?) er Minted, men den krever at ein har installert Python. Dersom ein ikkje har avanserte behov kan ein nytta listings.
+
+\begin{lstlisting}
+\begin{minted}{latex}
+	
+\end{minted}
+\end{lstlisting}
+
+	\end{frame}
+
+
+	\begin{frame}[containsverbatim]{Importering av eksterne filar}
+	
+	Importering av eksten kjeldekode gjer det enklare å holda dokumentet oppdatert. Endringar i den kjeldekoden du jobbar med vil umiddelbart bli reflektert i rapporten som skal dokumentera koden:
+
+\begin{minted}{latex}
+\inputminted[<options>]{<language>}{<filename>}
+\end{minted}
+	
+	Til dømes vil \mintinline{latex}|\inputminted{csharp}{source-code/hello.cs}| i denne presentasjonen gi oss:
+	
+	\inputminted{csharp}{source-code/hello.cs}
+	
+	\end{frame}
+	
+	
+	\begin{frame}[containsverbatim]{Matematikk}
+		
+		Dersom ein jobbar med ingeniørfag vil det ofte vera behov for å beskriva matematiske uttrykk. Det er derfor viktig å ha eit fleksibelt og enkelt system for dette. Dette er ein av dei største styrkene til \LaTeX, og det er faktisk mulig å nytta den samme syntaksen for å setta inn formlar i Microsoft Word. For å typesetta fylgjande uttrykk:
+		
+		\begin{equation}
+			\int_0^\infty \mathrm{e}^{-x}\,\mathrm{d}x
+		\end{equation}
+		
+		Kan ein nytta fylgjande kode:
+		
+\begin{minted}{latex}
+\begin{equation}
+\int_0^\infty \mathrm{e}^{-x}\,\mathrm{d}x
+\end{equation}
+\end{minted}
+		
+	\end{frame}
+
+
+	\begin{frame}[containsverbatim]{Avansert matematikk}
+		
+\begin{equation}
+	z = \overbrace{
+		\underbrace{x}_\text{reell} + j
+		\underbrace{y}_\text{lateral}
+	}^\text{komplekst tal}
+\end{equation}
+	
+	\begin{minted}{latex}
+\begin{equation}
+z = \overbrace{
+	\underbrace{x}_\text{reell} + j
+	\underbrace{y}_\text{lateral}
+}^\text{komplekst tal}
+\end{equation}
+	\end{minted}
+
+	\end{frame}
+
+
+	\begin{frame}{Organisering av dokumentet i fleire filar}
+		
+		For å betra organiseringa av eit dokument og for å forenkla samarbeid kan det delast opp i fleire filar. Til dømes ein fil for kvart kapittel. \LaTeX støtter ulike kommandoar for innhenting av eksterne filar\footnote{Merk at det her er snakk om filar med \LaTeX-kode, ikkje kjeldekode som skal listast opp.}
+		
+		\begin{itemize}
+			\item \mintinline{latex}|\input{vedlegg.tex}|
+			\item \mintinline{latex}|\include{vedlegg.tex}|
+			\item \mintinline{latex}|\import{vedlegg.tex}|
+		\end{itemize}
+		
+	\end{frame}
+
+	\begin{frame}{Organisering av dokumentet i fleire filar}
+		
+	\end{frame}
+
+	\begin{frame}{Organisering av dokumentet i fleire filar}
+	
+	\end{frame}
+
+	\begin{frame}[containsverbatim]{Punktlister og nummererte lister}
+		
+		\begin{itemize}
+			\item Eit element
+			\item Eit element til
+		\end{itemize}
+	
+	\begin{minted}{latex}
+\begin{itemize}
+	\item Eit element
+	\item Eit element til
+\end{itemize}
+	\end{minted}
+		
+	\end{frame}
+
+
+	\begin{frame}[containsverbatim]{Punktlister og nummererte lister}
+	
+	\begin{enumerate}
+		\item Eit element
+		\item Eit element til
+	\end{enumerate}
+	
+	\begin{minted}{latex}
+\begin{enumerate}
+	\item Eit element
+	\item Eit element til
+\end{enumerate}
+	\end{minted}
+	
+	\begin{enumerate}
+		\item[*] Eit element
+		\item[!] Eit element til
+		\item Enda eit
+	\end{enumerate}
+	
+	\begin{minted}{latex}
+\begin{enumerate}
+	\item[*] Eit element
+	\item[!] Eit element til
+	\item Enda eit
+\end{enumerate}
+	\end{minted}
+	
+	\end{frame}
+
+
+	\begin{frame}{Figurar (bilete)}
+	
+	Høgskulen sin logo er gitt i figur \ref{fig:hvl-logo}.
+	
+	\begin{figure}
+		\includegraphics[scale=0.1]{img/HVL-logo-vert-pos-norsk.png}
+		\caption{HVL sin logo}
+		\label{fig:hvl-logo}
+	\end{figure}
+	
+	\end{frame}
+
+
+	\begin{frame}[containsverbatim]{Figurar (bilete)}
+	
+	\begin{minted}{latex}
+Høgskulen sin logo er gitt i figur \ref{fig:hvl-logo}.
+
+\begin{figure}
+\includegraphics[scale=0.1]{img/HVL-logo-vert-pos-norsk.png}
+\caption{HVL sin logo}
+\label{fig:hvl-logo}
+\end{figure}
+	\end{minted}
+	
+	\end{frame}
+
+
+	\begin{frame}{Tabellar}
+\begin{table}
+	\begin{tabular}{ccc}
+		\hline
+		a & b & c \\
+		d & e & f
+	\end{tabular}
+\end{table}
+	\end{frame}
+
+
+
+	\begin{frame}{Referanselister}
+		
+		Skikkelige referanselister er både viktig for å unngå plagiat, og nyttig for å hjelpa lesaren til å finna meir informasjon. \LaTeX har ulike system for å automatisera delar av jobben med innhenting av metadata, og generering av referanselister:
+		
+		\begin{itemize}
+			\item BibTeX
+			\item BibLaTeX
+		\end{itemize}
+	
+		
+	\end{frame}
+
+
+
+	\begin{frame}{Zotero}
+	
+	
+	\end{frame}
+
+
+	\begin{frame}{Referanselister}
+	
+	
+	
+	
+	\end{frame}
+	
+	
+\end{document}
