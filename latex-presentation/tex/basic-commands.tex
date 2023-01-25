@@ -1,0 +1,288 @@
+	\begin{frame}{Innhaldsfortegnelse}
+	
+	Ei innhaldsfortegnelse i \LaTeX{} vert normalt autogenerert ut frå inndelinga i seksjonar og kapittel. Kommandoen \mintinline{latex}{\tableofcontents} plasserer innhaldsfortegnelsen der ein måtte ynskja, til dømes her:
+	
+	\tableofcontents
+\end{frame}
+
+\begin{frame}{Fotnoter}
+	
+	Ei fotnote er eit notat til ein tekst plassert nederst på sida, med eit teikn i brødteksten som refererer til fotnoten\footnote{Fotnoter er ofte nytta som eit alternativ til å inkludera ei lang forklaring inne i brødteksten. Ein lesar som forstår teksten kan då hoppa over fotnoten, medan ein som har problem med å forstå teksten kan få hjelp.}. Kommandoen for å setta inn ei fotnote må plasserast der ein ynskjer å plassera referansen:
+	
+	\mintinline{latex}{..refererer til fotnoten\footnote{Fotnoter er ofte...}.}
+	
+\end{frame}
+
+\begin{frame}{Kryssreferansar}
+	
+	Kryssreferering er interne referansar i eit dokument for å fortelja lesaren kvar han kan finna gitt informasjon i dokumentet. Til dømes:
+	
+	\begin{displayquote}
+		Ohms lov er gitt i formel \eqref{eq:ohms-law}. Bla bla bla, meir tekst.... meir tekst meir tekst
+		
+		\begin{equation}
+			U = R \cdot I
+			\label{eq:ohms-law}
+		\end{equation}
+		
+	\end{displayquote}
+	
+	Eit anna relevant døme er:
+	
+	\begin{displayquote}
+		Grunnleggande om historien til \TeX og \LaTeX er gitt i avsnitt \ref{sec:history}.
+	\end{displayquote}
+	
+\end{frame}
+
+
+
+
+
+
+
+	\begin{frame}[containsverbatim]{Skrifttypar og skriftstorleik}
+	
+\LaTeX{} nyttar skrifttype-familien Computer Modern som standard. Familien har ulike konkrete skrifttypar tilgjengeleg:
+	
+\textrm{Døme på tekst med roman font}\\
+\textsf{Døme på tekst med sans serif font}\\
+\texttt{Døme på tekst med typewriter (monospace) font}
+
+	\begin{minted}{latex}
+\textrm{Døme på tekst med roman font}
+\textsf{Døme på tekst med sans serif font}
+\texttt{Døme på tekst med typewriter (monospace) font}
+	\end{minted}
+	
+	For å endra skrifttype (font) i dokumentet kan ein importera ulike pakkar, til dømes: \mintinline{latex}|\usepackage{tgbonum}|
+	
+	\url{https://tug.org/FontCatalogue/}
+	
+	
+\end{frame}
+
+\begin{frame}{Skriving på norsk}
+	
+	For å skiva \LaTeX{} på norsk er det nokon pakkar ein med fordel kan importera.
+	
+	\mintinline{latex}|\usepackage[nynorsk]{babel}| velger at autogenerert tekst som til dømes tittelen ``Innhald'' i innhaldsfortegnelsen vert på nynorsk.
+	
+	\mintinline{latex}|\usepackage{parskip}| sørger for at avsnitt vert delt med linjeskift, som er vanleg i norge.
+	
+\end{frame}
+
+\begin{frame}[containsverbatim]{Kolonner}
+	
+	Dokumentet kan delast opp i kolonner ved hjelp av \mintinline{latex}|\usepackage{multicol}|
+	
+	\begin{columns}
+		\begin{column}{0.49\textwidth}
+			
+			\begin{minted}{latex}
+\begin{multicols}{2}[]
+	the quick brown...
+\end{multicols}
+			\end{minted}
+			
+		\end{column}
+		% Column 2 (vertical line)
+		\begin{column}{.02\textwidth}
+			\rule{.1mm}{0.7\textheight}
+		\end{column}
+		% Column 3    
+		\begin{column}{0.245\textwidth}
+			The quick brown fox jumps over the lazy dog the quick brown fox jumps over the lazy dog	the quick brown fox jumps over the lazy dog
+		\end{column}
+		\begin{column}{0.245\textwidth}
+			The quick brown fox jumps over the lazy dog	the quick brown fox jumps over the lazy dog the quick brown fox jumps over the lazy dog
+		\end{column}
+	\end{columns}
+	
+	
+	%		\begin{multicols}{3}
+		%			[
+		%			\section{First Section}
+		%			All human things are subject to decay. And when fate summons, Monarchs must obey.
+		%			]
+		%			test
+		%			fasfd
+		%		\end{multicols}
+	
+\end{frame}
+
+\begin{frame}[containsverbatim]{Fargar}
+	
+	
+	\color{red} Tekst \color{green} kan \color{blue} skrivast \color{purple} i \color{yellow} ulike \color{orange} fargar.
+	
+	{\color{red} \rule{\linewidth}{0.5mm}}
+	
+	\color{black}
+	
+	For å få til dette kan ein nytta \mintinline{latex}|\usepackage{xcolor}|
+	
+	\begin{minted}[breaklines]{latex}
+\color{red} Tekst \color{green} kan \color{blue} skrivast \color{purple} i \color{yellow} ulike \color{orange} fargar.
+	\end{minted}
+	
+\end{frame}
+
+\begin{frame}[containsverbatim]{Punktlister og nummererte lister}
+	
+Punktlister på denne formen:
+
+	\begin{itemize}
+		\item Eit element
+		\item Eit element til
+	\end{itemize}
+
+får ein med:
+	
+	\begin{minted}{latex}
+\begin{itemize}
+	\item Eit element
+	\item Eit element til
+\end{itemize}
+	\end{minted}
+
+Nummererte lister får ein med \mintinline{latex}|\begin{enumerate}|:
+
+	\begin{enumerate}
+			\item Eit element
+			\item Eit element til
+	\end{enumerate}
+	
+\end{frame}
+
+
+%\begin{frame}[containsverbatim]{Punktlister og nummererte lister}
+%	
+%	\begin{enumerate}
+%		\item Eit element
+%		\item Eit element til
+%	\end{enumerate}
+%	
+%	\begin{minted}{latex}
+%\begin{enumerate}
+%	\item Eit element
+%	\item Eit element til
+%\end{enumerate}
+%	\end{minted}
+%	
+%	\begin{enumerate}
+%		\item[*] Eit element
+%		\item[!] Eit element til
+%		\item Enda eit
+%	\end{enumerate}
+	
+%	\begin{minted}{latex}
+%\begin{enumerate}
+%	\item[*] Eit element
+%	\item[!] Eit element til
+%	\item Enda eit
+%\end{enumerate}
+%	\end{minted}
+%	
+%\end{frame}
+
+
+
+	\begin{frame}[containsverbatim]{hyperref pakken}
+	
+	Pakken ``hyperref'' kan nyttast for å laga linkar i innhaldsfortegnelse, kryssrefferansar, m.m.:
+	
+	\begin{minted}{latex}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+	pdftitle={Døme på bruk av hyperref},
+	pdfpagemode=FullScreen,
+}
+	\end{minted}
+
+\end{frame}
+
+
+
+
+
+\begin{frame}[containsverbatim]{Måleeiningar}
+	
+	Pakken siunitx (\mintinline{latex}|\usepackage{siunitx}|) kan nyttast for å forenkla arbeidet med konsekvent typesetting av SI einingar.
+	
+	\mintinline{latex}|\(U = \SI{230}{\kilo\volt}\)| gir: \(U = \SI{230}{\kilo\volt}\)
+	
+	\mintinline{latex}|\(\SI{15}{\kilo\meter\cubed\per\second}\)| gir: \(\SI{15}{\kilo\meter\cubed\per\second}\)
+	
+	Fasevektorar kan typesettast ved hjelp av:
+	\begin{minted}[breaklines]{latex}
+\(\SI[parse-numbers=false]{38\phase{34^{\circ}}}{\ampere}\)
+	\end{minted}
+	\mintinline{latex}||
+	
+	Som gir: \( \SI[parse-numbers=false]{38\phase{34^{\circ}}}{\ampere}\)
+	
+\end{frame}
+
+
+
+
+\begin{frame}[containsverbatim]{Listing av kjeldekode}
+	
+	Kjeldekode i ulike programmeringsspråk vert normalt lista i ulike fargar for betra lesbarheten.
+	
+	Til dømes i Matlab:
+	
+	\begin{minted}{matlab}
+% Generate a random number
+a = randi(100, 1);
+
+% If it is even, divide by 2
+if rem(a, 2) == 0
+disp('a is even')
+b = a/2;
+end
+	\end{minted}
+	
+\end{frame}
+
+
+
+
+\begin{frame}[containsverbatim]{Listing av kjeldekode}
+	Ein har ulike pakkar for listing av kjeldekode.
+	
+	\begin{itemize}
+		\item verbatim
+		\item listings
+		\item Minted
+	\end{itemize}
+	
+	Den mest avanserte (beste?) er Minted, men den krever at ein har installert Python. Dersom ein ikkje har avanserte behov kan ein nytta listings.
+	
+	\begin{lstlisting}
+\begin{minted}{latex}
+	
+\end{minted}
+	\end{lstlisting}
+	
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{Importering av eksterne filar}
+	
+	Importering av eksten kjeldekode gjer det enklare å holda dokumentet oppdatert. Endringar i den kjeldekoden du jobbar med vil umiddelbart bli reflektert i rapporten som skal dokumentera koden:
+	
+	\begin{minted}{latex}
+\inputminted[<options>]{<language>}{<filename>}
+	\end{minted}
+	
+	Til dømes vil \mintinline{latex}|\inputminted{csharp}{source-code/hello.cs}| i denne presentasjonen gi oss:
+	
+	\inputminted{csharp}{source-code/hello.cs}
+	
+\end{frame}

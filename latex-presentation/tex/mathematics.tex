@@ -1,0 +1,67 @@
+\section{Matematikk}
+
+	\begin{frame}[containsverbatim]{Matematikk}
+	
+	Dersom ein jobbar med ingeniørfag vil det ofte vera behov for å beskriva matematiske uttrykk. Det er derfor viktig å ha eit fleksibelt og enkelt system for dette. Dette er ein av dei største styrkene til \LaTeX, og det er faktisk mulig å nytta den samme syntaksen for å setta inn formlar i Microsoft Word. For å typesetta fylgjande uttrykk:
+	
+	\begin{equation}
+		\int_0^\infty \mathrm{e}^{-x}\,\mathrm{d}x
+	\end{equation}
+	
+	Kan ein nytta fylgjande kode:
+	
+	\begin{minted}{latex}
+\begin{equation}
+	\int_0^\infty \mathrm{e}^{-x}\,\mathrm{d}x
+\end{equation}
+	\end{minted}
+	
+\end{frame}
+
+
+
+
+\begin{frame}[containsverbatim]{Matematikk}
+	
+	Dersom ein ikkje ynskjer nummerering kan ein skriva:
+	
+	\begin{minted}{latex}
+\begin{equation*}
+	\int_0^\infty \mathrm{e}^{-x}\,\mathrm{d}x
+\end{equation*}
+	\end{minted}
+	
+	For å plassera matematikk inne i teksten kan ein nytta:
+	
+	\mintinline{latex}|\(a = \frac{b}{c}\)|, som gir: \(a = \frac{b}{c}\)
+	
+	Unngå bruk av dollarteikn (\$) sjølv om det også fungerer:
+	\mintinline{latex}|$a = \frac{b}{c}$|, som gir: $a = \frac{b}{c}$
+	
+	Dollarteikn er ein \TeX{} kommando, og vil ikkje gi like gode feilmeldingar som \mintinline{latex}|\(\)| i \LaTeX{}.
+	
+	
+	
+\end{frame}
+
+
+
+\begin{frame}[containsverbatim]{Avansert matematikk}
+	
+	\begin{equation}
+		z = \overbrace{
+			\underbrace{x}_\text{reell} + j
+			\underbrace{y}_\text{lateral}
+		}^\text{komplekst tal}
+	\end{equation}
+	
+	\begin{minted}{latex}
+\begin{equation}
+	z = \overbrace{
+		\underbrace{x}_\text{reell} + j
+		\underbrace{y}_\text{lateral}
+	}^\text{komplekst tal}
+\end{equation}
+	\end{minted}
+	
+\end{frame}

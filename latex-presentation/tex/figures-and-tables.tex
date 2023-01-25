@@ -1,0 +1,143 @@
+\section{Figurar og tabellar}
+
+	\begin{frame}{Figurar (bilete)}
+	
+	Høgskulen sin logo er gitt i figur \ref{fig:hvl-logo}.
+	
+	\begin{figure}
+		\includegraphics[scale=0.1]{img/HVL-logo-vert-pos-norsk.png}
+		\caption{HVL sin logo}
+		\label{fig:hvl-logo}
+	\end{figure}
+	
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{Figurar (bilete)}
+	
+	\begin{minted}[breaklines]{latex}
+Høgskulen sin logo er gitt i figur \ref{fig:hvl-logo}.
+
+\begin{figure}
+	\includegraphics[scale=0.1]{img/HVL-logo-vert-pos-norsk.png}
+	\caption{HVL sin logo}
+	\label{fig:hvl-logo}
+\end{figure}
+	\end{minted}
+	
+\end{frame}
+
+\begin{frame}[containsverbatim]{Underfigurar}
+	
+	Det kan vera nyttig å gruppera ein figur i fleire underfigurar. Til dømes eit krinsskjema og ein graf som beskriv responsen til krinsen.
+	
+	\textbf{Ikkje bruk denne utdaterte pakken:} \mintinline{latex}|\usepackage{subfig}|. Den var sist oppdatert i 2005.
+	
+	I staden bør du bruka:
+	
+	\begin{minted}{latex}
+\usepackage{caption}
+\usepackage{subcaption}
+	\end{minted}
+	
+	
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{Underfigurar}
+	
+	\begin{figure}
+		\centering
+		\begin{subfigure}[b]{0.3\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{example-image-a}
+			\caption{Den første figuren}
+			\label{fig:first-fig}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}[b]{0.3\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{example-image-b}
+			\caption{Den andre figuren}
+			\label{fig:second-fig}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}[b]{0.3\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{example-image-c}
+			\caption{Den tredje figuren}
+			\label{fig:third-fig}
+		\end{subfigure}
+		\caption{Tre figurar}
+		\label{fig:three-figures}
+	\end{figure}
+	
+	Figur \ref{fig:first-fig} syner ein A, medan figur \ref{fig:second-fig} syner ein B.
+	
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{Underfigurar}
+	
+	\begin{minted}{latex}
+\begin{figure}
+	\centering
+	\begin{subfigure}[b]{0.3\textwidth}
+		\centering
+		\includegraphics....
+		\caption{Den første figuren}
+		\label{fig:first-fig}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.3\textwidth}
+		\centering
+		\includegraphics....
+		\caption{Den andre figuren}
+		\label{fig:second-fig}
+	\end{subfigure}
+	...
+\end{figure}
+	\end{minted}
+	
+	
+	
+	
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{Tabellar}
+	
+	Tabellar kan opprettast i ``tabular'' miljøet.
+	
+	\begin{table}
+		\caption{Teknisk tabell}
+		\begin{tabular}{ |c|c|c| } 
+			\hline
+			kolonne1 & kolonne2 & kolonne3 \\
+			\hline
+			\multirow{3}{4em}{Fleire rader} & celle2 & celle3 \\ 
+			& celle5 & celle6 \\ 
+			& celle8 & celle9 \\ 
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	\begin{minted}{latex}
+\begin{tabular}{ |c|c|c| } 
+	\hline
+	kolonne1 & kolonne2 & kolonne3 \\
+	\hline
+	\multirow{3}{4em}{Fleire rader} & celle2 & celle3 \\ 
+	& celle5 & celle6 \\ 
+	& celle8 & celle9 \\ 
+	\hline
+\end{tabular}
+	\end{minted}
+	
+\end{frame}
+
+%\begin{frame}[containsverbatim]{Tabellar}
+%	
+%	For å laga litt finare tabellar kan ein nytta: \mintinline{latex}|\usepackage{booktabs}|.
+%	
+%\end{frame}

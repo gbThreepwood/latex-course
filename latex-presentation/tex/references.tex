@@ -1,0 +1,99 @@
+
+\section{Referanselister}
+
+	\begin{frame}{Referanselister}
+	
+	Skikkelige referanselister er både viktig for å unngå plagiat, og nyttig for å hjelpa lesaren til å finna meir informasjon. \LaTeX har fleire system for å automatisera delar av jobben med innhenting av metadata, og generering av referanselister:
+	
+	\begin{itemize}
+		\item BibTeX
+		\item BibLaTeX
+	\end{itemize}
+	
+	BibLaTeX er det moderne alternativet til BibTeX og er det som bør nyttast.
+	
+\end{frame}
+
+
+
+
+
+\begin{frame}[containsverbatim]
+	
+	Referanselister i \LaTeX{} kan manuelt leggast inn på fylgjande måte:
+	
+	\begin{minted}[breaklines]{latex}
+\begin{thebibliography}{9}
+	\bibitem{texbook}
+	Donald E. Knuth (1986) \emph{The \TeX{} Book}, Addison-Wesley Professional.
+	
+	\bibitem{lamport94}
+	Leslie Lamport (1994) \emph{\LaTeX: a document preparation system}, Addison
+	Wesley, Massachusetts, 2nd ed.
+\end{thebibliography}
+	\end{minted}
+	
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{Referanselister}
+	
+	Som gir resultatet:
+	
+	\begin{thebibliography}{9}
+		\bibitem{texbook}
+		Donald E. Knuth (1986) \emph{The \TeX{} Book}, Addison-Wesley Professional.
+		
+		\bibitem{lamport94}
+		Leslie Lamport (1994) \emph{\LaTeX: a document preparation system}, Addison
+		Wesley, Massachusetts, 2nd ed.
+	\end{thebibliography}
+	
+	Teksten kan referera til referansane med hjelp av ``cite'' kommandoen. Til dømes \mintinline{latex}|\cite{lamport94}|, som gir \cite{lamport94}.
+	
+	\LaTeX{} \cite{lamport94} er ein pakke med makroar for \TeX{} \cite{texbook}.
+	
+\end{frame}
+
+
+
+\begin{frame}[containsverbatim]{Referanselister}
+	
+	Det er tungvindt å skriva referanselista manuelt. Dei fleste ynskjer å nytta eit verktøy for å organisera alle referansane og å generera lista automatisk.
+	
+	Ei referanse har ein del metadata som tittel, forfattar, publiseringsdato, ISBN nummer (for bøker), .m.m. Denne informasjonen kan leggast i spesiell *.bib filar som BibLaTeX nyttar for å generera referanselistene. *.bib filane kan ein enten skriva manuelt, ein kan lasta dei ned frå ulike kjelder, eller ein kan nytta ulike verktøy for å generera dei automatisk.	
+	
+
+	
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{Referanselister}
+	
+	\begin{minted}{latex}
+\usepackage[
+backend=biber,
+style=ieeetr,
+sorting=ynt
+]{biblatex}
+\addbibresource{latex-kurs-referansar.bib}
+	\end{minted}
+
+Kommandoen \mintinline{latex}|\printbibliography| må plasserast der ein ynskjer at referanselista skal plasserast.
+
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{Referanselister}
+
+Den originale boka om \TeX{} \cite{knuth1986texbook}, og den originale boka om \LaTeX{} \cite{lamport1994latex}.
+	
+\printbibliography
+
+\end{frame}
+
+
+\begin{frame}{Referansehåndtering med Zotero}
+	
+	
+\end{frame}
