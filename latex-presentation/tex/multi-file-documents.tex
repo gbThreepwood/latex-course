@@ -3,7 +3,7 @@
 
 	\begin{frame}{Organisering av dokumentet i fleire filar}
 	
-	For å betra organiseringa av eit dokument og for å forenkla samarbeid kan det delast opp i fleire filar. Til dømes ein fil for kvart kapittel. \LaTeX støtter ulike kommandoar for innhenting av eksterne filar\footnote{Merk at det her er snakk om filar med \LaTeX-kode, ikkje kjeldekode som skal listast opp.}
+	For å betra organiseringa av eit dokument, og for å forenkla samarbeid kan det delast opp i fleire filar. Til dømes ein fil for kvart kapittel. \LaTeX støtter ulike kommandoar for innhenting av eksterne filar\footnote{Merk at det her er snakk om filar med \LaTeX-kode, ikkje kjeldekode som skal listast opp.}
 	
 	\begin{itemize}
 		\item \mintinline{latex}|\input{vedlegg.tex}|
@@ -16,7 +16,7 @@
 
 \begin{frame}{Organisering av dokumentet i fleire filar}
 	
-	Forskjellen på \mintinline{latex}|\input{vedlegg.tex}|, og \mintinline{latex}|\include{vedlegg.tex}| er at den siste setter inn eit sideskift før og etter innhenting av den eksterne filen (kommandoen for å gjera dette manuelt er: \mintinline{latex}|\clearpage|).
+	Forskjellen på \mintinline{latex}|\input{vedlegg.tex}|, og \mintinline{latex}|\include{vedlegg.tex}| er at den siste setter inn eit sideskift før og etter innhenting av den eksterne filen (kommandoen for å gjera dette sideskiftet manuelt er: \mintinline{latex}|\clearpage|).
 	
 	Kommandoen \mintinline{latex}|\import{vedlegg.tex}| er ikkje innebygd, og krever at ein legg til \mintinline{latex}|\usepackage{import}| i preamble.
 	
@@ -27,9 +27,13 @@
 \end{frame}
 
 \begin{frame}{Organisering av dokumentet med subfile}
-	
-	Ved hjelp av ``subfiles'' pakken kan du bygga kvar ekstern fil individuelt, og dei vil automatisk nytta samme ``preamble'' som hovudfilen.
-	
-	Dette er ein veldig fleksibel pakke for å dela eit større prosjekt inn i mange filar.
+
+``import'' pakken gjer det enklare å organisera dokumentet ved at kvart kapittel kan ha si eige mappe med både ``*.tex'' fil, og eksterne filar for figurar m.m.
+  
+	Ved hjelp av ``subfiles'' pakken kan du bygga kvar ekstern fil individuelt, og dei vil automatisk nytta samme ``preamble'' som hovudfilen. Dette er ein veldig fleksibel pakke for å dela eit større prosjekt inn i mange filar.
 	
 \end{frame}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../latex-presentation"
+%%% End:

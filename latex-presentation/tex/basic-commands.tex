@@ -55,7 +55,7 @@
 \texttt{Døme på tekst med typewriter (monospace) font}
 	\end{minted}
 	
-	For å endra skrifttype (font) i dokumentet kan ein importera ulike pakkar, til dømes: \mintinline{latex}|\usepackage{tgbonum}|
+	For å endra skrifttype (font) i heile dokumentet kan ein importera ulike pakkar, til dømes: \mintinline{latex}|\usepackage{tgbonum}|
 	
 	\url{https://tug.org/FontCatalogue/}
 	
@@ -223,9 +223,10 @@ Nummererte lister får ein med \mintinline{latex}|\begin{enumerate}|:
 \(\SI[parse-numbers=false]{38\phase{34^{\circ}}}{\ampere}\)
 	\end{minted}
 	\mintinline{latex}||
-	
 	Som gir: \( \SI[parse-numbers=false]{38\phase{34^{\circ}}}{\ampere}\)
-	
+
+        Pakken siunitx er ein avansert pakke som støttar mange ulike standardar for typesetting av einingar (brukarmanualen er på 82 sider).
+        
 \end{frame}
 
 
@@ -233,7 +234,7 @@ Nummererte lister får ein med \mintinline{latex}|\begin{enumerate}|:
 
 \begin{frame}[containsverbatim]{Listing av kjeldekode}
 	
-	Kjeldekode i ulike programmeringsspråk vert normalt lista i ulike fargar for betra lesbarheten.
+	Kjeldekode i ulike programmeringsspråk vert normalt lista i ulike fargar for å betra lesbarheten.
 	
 	Til dømes i Matlab:
 	
@@ -286,3 +287,7 @@ end
 	\inputminted{csharp}{source-code/hello.cs}
 	
 \end{frame}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../latex-presentation"
+%%% End:

@@ -38,7 +38,7 @@
 	Unngå bruk av dollarteikn (\$) sjølv om det også fungerer:
 	\mintinline{latex}|$a = \frac{b}{c}$|, som gir: $a = \frac{b}{c}$
 	
-	Dollarteikn er ein \TeX{} kommando, og vil ikkje gi like gode feilmeldingar som \mintinline{latex}|\(\)| i \LaTeX{}.
+	Dollarteikn er ein \TeX{} kommando, og vil ikkje gi like gode (forståelige) feilmeldingar som \mintinline{latex}|\(\)| i \LaTeX{}.
 	
 	
 	
@@ -47,7 +47,9 @@
 
 
 \begin{frame}[containsverbatim]{Avansert matematikk}
-	
+
+  Dersom ein har behov for å beskriva ulike delar av eit uttrykk kan ein til dømes gjera fylgjande:
+  
 	\begin{equation}
 		z = \overbrace{
 			\underbrace{x}_\text{reell} + j
@@ -65,3 +67,7 @@
 	\end{minted}
 	
 \end{frame}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../latex-presentation"
+%%% End:
