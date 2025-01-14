@@ -10,7 +10,7 @@
 		\item BibLaTeX
 	\end{itemize}
 	
-	BibLaTeX er det moderne alternativet til BibTeX og er det som bør nyttast.
+	BibLaTeX er det moderne alternativet til BibTeX og er det ein bør nytta.
 	
 \end{frame}
 
@@ -49,9 +49,11 @@
 		Wesley, Massachusetts, 2nd ed.
 	\end{thebibliography}
 	
-	Teksten kan referera til referansane med hjelp av ``cite'' kommandoen. Til dømes \mintinline{latex}|\cite{lamport94}|, som gir \cite{lamport94}.
+	Teksten kan referera til referansane ved hjelp av ``cite'' kommandoen. Til dømes \mintinline{latex}|\cite{lamport94}|, som gir \cite{lamport94}.
 	
 	\LaTeX{} \cite{lamport94} er ein pakke med makroar for \TeX{} \cite{texbook}.
+	
+	\textit{Dette fungerer ikkje saman med den meir avanserte pakken for referanselister som eg nyttar seinare i dokumentet, og ser derfor ikkje riktig ut.}
 	
 \end{frame}
 
@@ -62,13 +64,13 @@
 	Det er tungvindt å skriva referanselista manuelt. Dei fleste ynskjer å nytta eit verktøy for å organisera alle referansane og å generera lista automatisk.
 	
 	Ei referanse har ein del metadata som tittel, forfattar, publiseringsdato, ISBN nummer (for bøker), .m.m. Denne informasjonen kan leggast i spesielle *.bib filar som BibLaTeX nyttar for å generera referanselistene. *.bib filane kan ein enten skriva manuelt, ein kan lasta dei ned frå ulike kjelder, eller ein kan nytta ulike verktøy for å generera dei automatisk.	
-	
 
-	
 \end{frame}
 
 
 \begin{frame}[containsverbatim]{Referanselister}
+	
+	Oppsettet for ei moderne referanseliste med \textit{biblatex} kan sjå slik ut:
 	
 	\begin{minted}{latex}
 \usepackage[
@@ -78,6 +80,8 @@ sorting=ynt
 ]{biblatex}
 \addbibresource{latex-kurs-referansar.bib}
 	\end{minted}
+	
+	Filen \textit{latex-kurs-referansar.bib} heldt metadata for alle referansane, og er som regel auto-generert.
 
 Kommandoen \mintinline{latex}|\printbibliography| må plasserast der ein ynskjer at referanselista skal plasserast.
 
@@ -87,7 +91,7 @@ Kommandoen \mintinline{latex}|\printbibliography| må plasserast der ein ynskjer
 \begin{frame}[containsverbatim]{Referanselister}
 
 Den originale boka om \TeX{} \cite{knuth1986texbook}, og den originale boka om \LaTeX{} \cite{lamport1994latex}.
-	
+
 \printbibliography
 
 \end{frame}
