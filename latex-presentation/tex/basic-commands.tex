@@ -37,20 +37,60 @@
 
 
 
+\begin{frame}[containsverbatim]{Skrifttypar og skriftstorleik}
+	
+	Val av skrifttype kan ha stor betydning for korleis ein tekst vert oppfatta. Standardisering av skrifttypar vart nødvendig etter at Johann Gutenberg oppfant boktrykkerkunsten. Den første standardiserte skrifttypen til Gutenberg var Textura.
+	
+	\tgothfamily Dette er tekst i Textura font.\normalfont
+	
+	Ein kan kategorisera skrifttypar i ulike kategoriar. Nokon vanlege kategoriar er:
+	
+	\begin{itemize}
+		\item \textit{Kursiv}
+		\item \textbf{Bold}
+		\item \textrm{Serif (bokstavane har føtter)}
+		\item \textsf{Sans-serif (ikkje-serif)}
+		\item \texttt{Monospace (kvar bokstav tek like mykje plass)}
+	\end{itemize}
+	
+%{\fontfamily{qcr}\selectfont
+%Dette er TeX Gyre Cursor
+%}
+
+	
+\end{frame}
 
 
+\begin{frame}[containsverbatim]{Skrifttypar og skriftstorleik}
+	
+	Ein del skrifttypar er kategorisert som ``Metric-compatible fonts'', som betyr at dei har samme storleik som andre skrifttypar i samme kategori. Typisk er det åpne (gratis) skrifttypar som kan erstatta kommersielle typar.
+		
+	Det er nokon konkrete skrifttypar som er meir utbredt enn andre, og dei mest kjente har som regel fleire alternativ:
+	
+	\begin{itemize}
+		\item Helvetica (også kjent som Arial eller Liberation sans)
+		\item Times (også kjent som Times New Roman)
+		\item Palatino (Antiqua).
+		\item Computer Modern
+	\end{itemize}
+	
+
+	
+\end{frame}
 
 
-	\begin{frame}[containsverbatim]{Skrifttypar og skriftstorleik}
+\begin{frame}[containsverbatim]{Skrifttypar og skriftstorleik}
 	
 \LaTeX{} nyttar skrifttype-familien Computer Modern som standard. Familien har ulike konkrete skrifttypar tilgjengeleg:
 	
-\textrm{Døme på tekst med roman font}\\
+\textrm{Døme på tekst med roman (vanleg) font}\\
+\textbf{Døme på tekst med bold font}\\
+\textit{Døme på tekst med kursiv (italic) font}\\
 \textsf{Døme på tekst med sans serif font}\\
 \texttt{Døme på tekst med typewriter (monospace) font}
 
 	\begin{minted}{latex}
-\textrm{Døme på tekst med roman font}
+\textrm{Døme på tekst med roman (vanleg) font}
 \textsf{Døme på tekst med sans serif font}
 \texttt{Døme på tekst med typewriter (monospace) font}
 	\end{minted}
@@ -59,6 +99,15 @@
 	
 	\url{https://tug.org/FontCatalogue/}
 	
+	
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{Skriftstorleik}
+	
+Ein bør normalt overlata til \LaTeX{} å bestemma kva som er passande skriftstorleik for overskrifter, fotnoter, brødtekst, m.m. Dersom ein likevel ynskjer å overstyra dette kan ein nytta {\huge stor} og {\tiny liten} skrift i samme tekst.
+	
+	%TODO: Trekk inn noko av det som står her: https://www.overleaf.com/learn/latex/Font\_sizes
 	
 \end{frame}
 
