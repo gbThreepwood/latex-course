@@ -2,7 +2,7 @@
 
 \begin{frame}{Introduksjon}
 	
-	Eit \LaTeX{} dokument består av ein eller fleire kjeldefilar (*.tex) som vanlegvis er reine tekstfilar i UTF-8 format. Filane vert lest av ein kompilator og konvertert til eit dokument, vanlegivis i *.pdf format.
+	Eit \LaTeX{} dokument består av ein eller fleire kjeldefilar (*.tex) som vanlegvis er reine tekstfilar i UTF-8 format. Filane vert lest av ein \LaTeX{}-kompilator som genererer eit dokument, vanlegivis i *.pdf format.
 	
 	Programmet (kompilatoren) som les *.tex filane er ein vanleg programfil utan grafisk brukargrensesnitt (eit konsollprogram). Ein har ulike alternativ:
 	
@@ -47,12 +47,11 @@ Kjeldefilen for eit svært enkelt \LaTeX{} dokument kan sjå slik ut:
 
 \begin{frame}[containsverbatim]{Oppbygging av eit dokument}
 	
-	Koden før \mintinline{latex}|\begin{document}| vert kalla ``preamble''. Her importerer ein pakkar som tilbyr ekstra funksjonalitet og endrer innstillingar som gjeld heile dokumentet.
+	Koden før \mintinline{latex}|\begin{document}| vert kalla ``preamble''. Her importerer ein pakkar som tilbyr ekstra funksjonalitet og endrar innstillingar som gjeld heile dokumentet.
 		
 		Mellom \mintinline{latex}|\begin{document}| og \mintinline{latex}|\end{document}| plasserer ein alt innhaldet i dokumentet. Dette inkluderer den reine teksten ein jobbar med, samt kommandoar som markerer teksten for å oppnå dei tilpassingane ein ynskjer.
 		
-		\mintinline{latex}|\documentclass[10pt,a4paper]{article}| velger dokumentklasse, og setter enkelte innstillingar som gjeld for heile dokumentet. Dette har betydning både for korleis dokumented ser ut, og kva kommandoar som er tilgjengelig.
-		
+		\mintinline{latex}|\documentclass[10pt,a4paper]{article}| velger dokumentklasse, og setter enkelte innstillingar som gjeld for heile dokumentet. Dette har betydning både for korleis dokumentet ser ut, og kva kommandoar som er tilgjengelig.
 		
 	\end{frame}
 
@@ -61,7 +60,7 @@ Kjeldefilen for eit svært enkelt \LaTeX{} dokument kan sjå slik ut:
 
 		\mintinline{latex}|\usepackage[utf8]{inputenc}| velger at teksten som \LaTeX{} får inn (den teksten du skriv) skal tolkast som UTF-8. Denne pakken er ikkje nødvendig i dei moderne kompilatorane XeLaTeX, og LuaLaTeX.
 		
-		\mintinline{latex}|\usepackage[T1]{fontenc}| velger kva type skriftkoding (font encoding) som skal nyttast. Merk at dette ikkje er det samme som å velga skrifttype, det handlar om kva \textit{type} skrifttypar som skal vera tigjengeleg. Denne pakken er nesten alltid med.
+		\mintinline{latex}|\usepackage[T1]{fontenc}| velger kva type skriftkoding (font encoding) som skal nyttast. Merk at dette ikkje er det samme som å velga skrifttype, det handlar om kva \textit{type} skrifttypar som skal vera tigjengeleg. Denne pakken er nesten alltid med, men ein treng normalt ikkje ta stilling til den. Den \textit{berre er der}.
 		
 		\mintinline{latex}|\author{Eirik Haustveit}| og \mintinline{latex}|\title{Demo}| vert nytta av ulike verktøy som til dømes kan generera framside automatisk.
 		
@@ -78,11 +77,13 @@ Kjeldefilen for eit svært enkelt \LaTeX{} dokument kan sjå slik ut:
 		
 		\mintinline{latex}{\part{tittel}}
 		
+		Det er viktig å ikkje overdriva bruken av slik inndeling. Boka \textit{The Elements of Typographic Style} anbefaler 3 nivå \cite{bringhurstElementsTypographicStyle2002}.
+		
 	\end{frame}
 	
 	\begin{frame}{Feilmeldingar}
 		
-		Dersom du skriv ein ugyldig kommando vil du få ein feilmelding på samme måte som ved kompilering av eit program. Det er ulike kategoriar av feilmeldingar, nokon vil stoppa bygginga av dokumentet, medan andre berre fordel deg at noko er galt og at dokumentet truleg ikkje vil sjå ut slik som du hadde tenkt.
+		Dersom du skriv ein ugyldig kommando vil du få ein feilmelding på samme måte som ved kompilering av eit program. Det er ulike kategoriar av feilmeldingar, nokon vil stoppa bygginga av dokumentet, medan andre berre fortel deg at noko er galt og at dokumentet truleg ikkje vil sjå ut slik som du hadde tenkt.
 		
 		%	\begin{itemize}
 			%		\item error

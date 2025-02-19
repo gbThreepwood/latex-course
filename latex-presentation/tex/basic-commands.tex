@@ -1,6 +1,6 @@
 	\begin{frame}{Innhaldsfortegnelse}
 	
-	Ei innhaldsfortegnelse i \LaTeX{} vert normalt autogenerert ut frå inndelinga i seksjonar og kapittel. Kommandoen \mintinline{latex}{\tableofcontents} plasserer innhaldsfortegnelsen der ein måtte ynskja, til dømes her:
+	Ei innhaldsfortegnelse i \LaTeX{} vert normalt autogenerert ut frå inndelinga i seksjonar og kapittel. Kommandoen \mintinline{latex}{\tableofcontents} plasserer innhaldsfortegnelsen der ein måtte ynskja, til dømes her:\\
 	
 	\tableofcontents
 \end{frame}
@@ -32,6 +32,9 @@
 	\begin{displayquote}
 		Grunnleggande om historien til \TeX og \LaTeX er gitt i avsnitt \ref{sec:history}.
 	\end{displayquote}
+	
+	Kryssreferering nyttar kommandoar som \mintinline{latex}|\label{eq:ohms-law}|, og \mintinline{latex}|\eqref{eq:ohms-law}|, for henhaldsvis markering av eit gitt element, og referering til det samme elementet.
+
 	
 \end{frame}
 
@@ -113,7 +116,7 @@ Ein bør normalt overlata til \LaTeX{} å bestemma kva som er passande skriftsto
 
 \begin{frame}{Skriving på norsk}
 	
-	For å skiva \LaTeX{} på norsk er det nokon pakkar ein med fordel kan importera.
+	For å skiva \LaTeX{} på norsk er det nokon pakkar ein med fordel bør importera.
 	
 	\mintinline{latex}|\usepackage[nynorsk]{babel}| velger at autogenerert tekst som til dømes tittelen ``Innhald'' i innhaldsfortegnelsen vert på nynorsk.
 	
@@ -267,12 +270,15 @@ Nummererte lister får ein med \mintinline{latex}|\begin{enumerate}|:
 	
 	\mintinline{latex}|\(\SI{15}{\kilo\meter\cubed\per\second}\)| gir: \(\SI{15}{\kilo\meter\cubed\per\second}\)
 	
-	Fasevektorar kan typesettast ved hjelp av:
-	\begin{minted}[breaklines]{latex}
-\(\SI[parse-numbers=false]{38\phase{34^{\circ}}}{\ampere}\)
-	\end{minted}
-	\mintinline{latex}||
-	Som gir: \( \SI[parse-numbers=false]{38\phase{34^{\circ}}}{\ampere}\)
+	Fasevektorar kan typesettast ved hjelp av, \mintinline{latex}|\(I = \complexqty{38:34}{\ampere}\)|, som gir:
+	
+	\(I = \complexqty{38:34}{\ampere}\)
+	
+%	\begin{minted}[breaklines]{latex}
+%\(\SI[parse-numbers=false]{38\phase{34^{\circ}}}{\ampere}\)
+%	\end{minted}
+%	\mintinline{latex}||
+%	Som gir: \( \SI[parse-numbers=false]{38\phase{34^{\circ}}}{\ampere}\)
 
         Pakken siunitx er ein avansert pakke som støttar mange ulike standardar for typesetting av einingar (brukarmanualen er på 82 sider).
         
@@ -312,7 +318,7 @@ end
 		\item Minted
 	\end{itemize}
 	
-	Den mest avanserte (beste?) er Minted, men den krever at ein har installert Python. Dersom ein ikkje har avanserte behov kan ein nytta listings.
+	Den mest avanserte (beste?) er Minted, men den krever at ein har installert Python. Dersom ein ikkje har avanserte behov kan ein nytta listings. Denne presentasjonen nyttar Minted.
 	
 	\begin{lstlisting}
 \begin{minted}{latex}
